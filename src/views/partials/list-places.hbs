@@ -5,6 +5,7 @@
       <th>Lat</th>
       <th>Lon</th>
       <th>Description</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,11 @@
         </td>
         <td>
           {{des}}
+        </td>
+        <td>
+          <a href="/playlist/{{../playlist._id}}/deletetrack/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
+          </a>
         </td>
       </tr>
     {{/each}}
