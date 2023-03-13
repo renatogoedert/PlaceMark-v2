@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "firstName": "Renato Francisco",
+      "lastName": "Goedert",
+      "email": "homer@simpson.com",
+      "password": "!bimQQNvt5sq4p6",
+      "_id": "6ef10579-b84f-40d3-82a2-b15fd77fe4e7"
+    },
+    {
+      "firstName": "Renato Francisco",
+      "lastName": "Goedert",
+      "email": "homer@simpson.com",
+      "password": "!bimQQNvt5sq4p6",
+      "_id": "e064faf7-4b14-4397-bfdb-f3668f815279"
+    },
+    {
+      "firstName": "Renato Francisco",
+      "lastName": "Goedert",
+      "email": "homer@simpson.com",
+      "password": "!bimQQNvt5sq4p6",
+      "_id": "e23c6e40-d014-4d6b-9be2-69265521b96b"
+    },
+    {
+      "firstName": "Renato Francisco",
+      "lastName": "Goedert",
+      "email": "homer@simpson.com",
+      "password": "!bimQQNvt5sq4p6",
+      "_id": "10a2e95e-73de-4868-b00c-8ed8c59883aa"
+    }
+  ]
+}
