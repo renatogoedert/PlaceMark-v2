@@ -1,0 +1,28 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each placemark.places}}
+      <tr>
+        <td>
+          {{name}}
+        </td>
+        <td>
+          {{lat}}
+        </td>
+        <td>
+          {{lon}}
+        </td>
+        <td>
+          {{des}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
