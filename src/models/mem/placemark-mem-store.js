@@ -30,5 +30,8 @@ export const placemarkMemStore = {
     placemarks = [];
   },
 
+  async getUserPlacemarks(userid) {
+    return placemarks.filter((placemark) => placemark.userid === userid);
+  },
 
 };
