@@ -20,5 +20,5 @@ export const PlaceSpec = {
 };
 
 export const PlacemarkSpec = {
-  title: Joi.string().required(),
+  name: Joi.string().required(),
 };
