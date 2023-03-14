@@ -30,10 +30,6 @@ export const cities = {
   name: "cities to visit"
 };
 
-export const beaches = {
-  name: "beaches to visit"
-};
-
 export const testPlacemarks = [
   {
     name: "cities to visit"
@@ -43,33 +39,5 @@ export const testPlacemarks = [
   },
   {
     name: "rivers to swim"
-  }
-];
-
-export const berlin = {
-  "Name": "Berlin",
-  "lat": 52.52,
-  "lon": 13.40,
-  "des": "Berlin, Germany’s capital, dates to the 13th century."
-};
-
-export const testPlaces = [
-  {
-    "Name": "Berlin",
-    "lat": 52.52,
-    "lon": -6.26,
-    "des": "Berlin, Germany’s capital, dates to the 13th century."
-  },
-  {
-    "Name": "Dublin",
-    "lat": 53.34,
-    "lon": 13.40,
-    "des": "Dublin, capital of the Republic of Ireland, is on Ireland’s east coast at the mouth of the River Liffey."
-  },
-  {
-    "Name": "Paris",
-    "lat": 48.86,
-    "lon": 2.35,
-    "des": "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture."
   }
 ];
