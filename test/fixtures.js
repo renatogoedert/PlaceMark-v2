@@ -73,3 +73,5 @@ export const testPlaces = [
     "des": "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture."
   }
 ];
+
+export const serviceUrl = "http://localhost:3000";
