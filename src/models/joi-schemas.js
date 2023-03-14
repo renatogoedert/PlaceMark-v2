@@ -6,3 +6,19 @@ export const UserSpec = {
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 };
+
+export const UserCredentialsSpec = {
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
+};
+
+export const PlaceSpec = {
+  name: Joi.string().required(),
+  lat: Joi.number().allow("").optional(),
+  lon: Joi.number().allow("").optional(),
+  des: Joi.string().required(),
+};
+
+export const PlacemarkSpec = {
+  title: Joi.string().required(),
+};
