@@ -7,6 +7,7 @@ import Cookie from "@hapi/cookie";
 import dotenv from "dotenv";
 import Joi from "joi";
 import Inert from "@hapi/inert";
+import HapiSwagger from "hapi-swagger";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import { apiRoutes } from "./api-routes.js";
@@ -21,6 +22,13 @@ if (result.error) {
   process.exit(1);
 }
 
+const swaggerOptions = {
+  info: {
+    title: "Playtime API",
+    version: "0.1",
+  },
+};
+
 async function init() {
   const server = Hapi.server({
     port: 3000,
@@ -31,6 +39,15 @@ async function init() {
   await server.register(Cookie);
   await server.register(Inert);
   server.validator(Joi);
+
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
+    },
+  ]);
 
   server.auth.strategy("session", "cookie", {
     cookie: {
