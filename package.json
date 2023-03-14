@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "mocha --ui tdd test/**/*.js -exit",
+    "dev": "npx nodemon  src/server.js",
     "lint": "eslint . --ext .js"
   },
   "author": "",
@@ -19,6 +20,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "mocha": "^10.2.0",
+    "nodemon": "^2.0.21",
     "prettier": "^2.5.1"
   },
   "dependencies": {
