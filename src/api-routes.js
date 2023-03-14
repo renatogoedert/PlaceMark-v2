@@ -1,5 +1,6 @@
 import { userApi } from "./api/user-api.js";
 import { placemarkApi } from "./api/placemark-api.js";
+import { placeApi } from "./api/place-api.js";
 
 export const apiRoutes = [
   { method: "GET", path: "/api/users", config: userApi.find },
@@ -12,4 +13,10 @@ export const apiRoutes = [
   { method: "GET", path: "/api/placemarks", config: placemarkApi.find },
   { method: "GET", path: "/api/placemarks/{id}", config: placemarkApi.findOne },
   { method: "DELETE", path: "/api/placemarks/{id}", config: placemarkApi.deleteOne },
+
+  { method: "GET", path: "/api/places", config: placeApi.find },
+  { method: "GET", path: "/api/places/{id}", config: placeApi.findOne },
+  { method: "POST", path: "/api/placemarks/{id}/places", config: placeApi.create },
+  { method: "DELETE", path: "/api/places", config: placeApi.deleteAll },
+  { method: "DELETE", path: "/api/places/{id}", config: placeApi.deleteOne },
 ];
