@@ -8,10 +8,14 @@ suite("Track API tests", () => {
   let beaches = null;
 
   setup(async () => {
-    await placemarkService.deleteAllPlacemarks();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllPlaces();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
+    await placemarkService.deleteAllPlacemarks();
+    await placemarkService.deleteAllPlaces();
+    await placemarkService.deleteAllUsers();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
     cities.userid = user._id;
     beaches = await placemarkService.createPlacemark(cities);
   });
