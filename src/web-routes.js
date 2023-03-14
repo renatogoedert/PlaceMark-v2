@@ -20,4 +20,6 @@ export const webRoutes = [
   { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
   { method: "POST", path: "/placemark/{id}/addplace", config: placemarkController.addPlace },
   { method: "GET", path: "/placemark/{id}/deleteplace/{placeid}", config: placemarkController.deletePlace },
+
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];
