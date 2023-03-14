@@ -1,32 +1,25 @@
 {
   "users": [
     {
-      "firstName": "Renato Francisco",
-      "lastName": "Goedert",
+      "firstName": "Homer",
+      "lastName": "Simpson",
       "email": "homer@simpson.com",
-      "password": "!bimQQNvt5sq4p6",
-      "_id": "6ef10579-b84f-40d3-82a2-b15fd77fe4e7"
+      "password": "secret",
+      "_id": "130f07c7-a6e4-4da5-b0ec-f02c84aa6caf"
     },
     {
-      "firstName": "Renato Francisco",
-      "lastName": "Goedert",
-      "email": "homer@simpson.com",
-      "password": "!bimQQNvt5sq4p6",
-      "_id": "e064faf7-4b14-4397-bfdb-f3668f815279"
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "737a7e56-9b07-4b15-8fab-8a90d3269186"
     },
     {
-      "firstName": "Renato Francisco",
-      "lastName": "Goedert",
-      "email": "homer@simpson.com",
-      "password": "!bimQQNvt5sq4p6",
-      "_id": "e23c6e40-d014-4d6b-9be2-69265521b96b"
-    },
-    {
-      "firstName": "Renato Francisco",
-      "lastName": "Goedert",
-      "email": "homer@simpson.com",
-      "password": "!bimQQNvt5sq4p6",
-      "_id": "10a2e95e-73de-4868-b00c-8ed8c59883aa"
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "_id": "d06a3e71-b955-40d0-bd38-5d028fdc4264"
     }
   ]
 }
