@@ -25,3 +25,19 @@ export const testUsers = [
     password: "secret",
   },
 ];
+
+export const cities = {
+  name: "cities to visit"
+};
+
+export const testPlacemarks = [
+  {
+    name: "cities to visit"
+  },
+  {
+    name: "cities to live"
+  },
+  {
+    name: "rivers to swim"
+  }
+];
