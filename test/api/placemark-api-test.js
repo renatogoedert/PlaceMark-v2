@@ -50,7 +50,7 @@ suite("Placemark API tests", () => {
     await placemarkService.deleteAllPlacemarks();
     returnedLists = await placemarkService.getAllPlacemarks();
     assert.equal(returnedLists.length, 0);
-  }).timeout(5000);
+  });
 
   test("remove non-existant placemark", async () => {
     try {
