@@ -64,7 +64,7 @@ suite("Place API tests", () => {
     const returnedPlacemark = await placemarkService.getPlacemark(beaches._id);
     assert.equal(returnedPlacemark.places.length, testPlaces.length);
     for (let i = 0; i < testPlaces.length; i += 1) {
-      assertSubset(testPlaces[i], returnedPlacemarkt.places[i]);
+      assertSubset(testPlaces[i], returnedPlacemark.places[i]);
     }
   });
 });
