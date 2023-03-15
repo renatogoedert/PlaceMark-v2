@@ -35,3 +35,4 @@ export async function validate(decoded, request) {
   }
   return { isValid: true, credentials: user };
 }
+
