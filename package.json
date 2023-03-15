@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "test": "mocha --ui tdd test/**/*.js -exit",
+    "test": "mocha --timeout 10000 --ui tdd test/**/*.js -exit",
     "dev": "npx nodemon  src/server.js",
     "lint": "eslint . --ext .js"
   },
@@ -36,7 +36,11 @@
     "joi": "^17.8.3",
     "jsonwebtoken": "^9.0.0",
     "lowdb": "^5.1.0",
+    "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^7.0.1",
     "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
