@@ -1,4 +1,5 @@
 import { Place } from "./place.js";
+import { Placemark } from "./placemark.js";
 
 export const placeMongoStore = {
   async getAllPlaces() {
