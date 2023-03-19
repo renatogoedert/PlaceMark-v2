@@ -1,6 +1,10 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import { db } from "../models/db.js";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 
+// controller to render index view
 export const dashboardController = {
   index: {
     handler: async function (request, h) {
@@ -15,6 +19,7 @@ export const dashboardController = {
     },
   },
 
+  // method to add one placemark with validation
   addPlacemark: {
     validate: {
       payload: PlacemarkSpec,
@@ -34,6 +39,7 @@ export const dashboardController = {
     },
   },
 
+  // method to delete one placemark
   deletePlacemark: {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);

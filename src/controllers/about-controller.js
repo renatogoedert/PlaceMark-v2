@@ -1,3 +1,7 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
+// controller to render index view
 export const aboutController = {
     index: {
       handler: function (request, h) {

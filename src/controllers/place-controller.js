@@ -1,7 +1,11 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import { PlaceSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 import { imageStore } from "../models/image-store.js";
 
+// controller to render index view
 export const placeController = {
   index: {
     handler: async function (request, h) {
@@ -16,6 +20,7 @@ export const placeController = {
     },
   },
  
+  // method to upload a image in cloudinary
   uploadImage: {
     handler: async function (request, h) {
       try {
@@ -32,7 +37,6 @@ export const placeController = {
         return h.redirect(`/dashboard`);
       }
     },
-    
     payload: {
       multipart: true,
       output: "data",

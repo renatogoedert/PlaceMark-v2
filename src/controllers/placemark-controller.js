@@ -1,7 +1,10 @@
-import { db } from "../models/db.js";
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import { PlaceSpec } from "../models/joi-schemas.js";
 import { imageStore } from "../models/image-store.js";
 
+// controller to render index 
 export const placemarkController = {
   index: {
     handler: async function (request, h) {
@@ -14,6 +17,7 @@ export const placemarkController = {
     },
   },
 
+  // method to add one place with validation
   addPlace: {
     validate: {
       payload: PlaceSpec,
@@ -35,6 +39,7 @@ export const placemarkController = {
     },
   },
 
+  // method to delete one place with validation
   deletePlace: {
     handler: async function(request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
@@ -43,6 +48,7 @@ export const placemarkController = {
     },
   },
 
+  // method to uoload images to place using cloudinary
   uploadImage: {
     handler: async function (request, h) {
       try {

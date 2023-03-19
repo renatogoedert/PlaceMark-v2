@@ -1,3 +1,28 @@
 {
-  "places": []
+  "places": [
+    {
+      "name": "Berlin",
+      "lat": 52.52,
+      "lon": -6.26,
+      "des": "Berlin, Germany capital, dates to the 13th century.",
+      "_id": "02fbf1f1-2723-4132-b47c-d6b355c15803",
+      "placemarkid": "81fb0a27-e055-44ab-bc98-dfe87ad96eb0"
+    },
+    {
+      "name": "Dublin",
+      "lat": 53.34,
+      "lon": 13.4,
+      "des": "Dublin, capital of the Republic of Ireland, is on Ireland east coast at the mouth of the River Liffey.",
+      "_id": "b1811392-2ba5-4e1e-815b-e9e6a8102336",
+      "placemarkid": "81fb0a27-e055-44ab-bc98-dfe87ad96eb0"
+    },
+    {
+      "name": "Paris",
+      "lat": 48.86,
+      "lon": 2.35,
+      "des": "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture.",
+      "_id": "ba8c0a74-8d85-4a4a-8d74-5f8f78b3866a",
+      "placemarkid": "81fb0a27-e055-44ab-bc98-dfe87ad96eb0"
+    }
+  ]
 }

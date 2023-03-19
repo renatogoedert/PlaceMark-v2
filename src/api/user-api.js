@@ -1,10 +1,16 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { UserSpec, UserSpecPlus,  UserCredentialsSpec, IdSpec, UserArray, JwtAuth } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 import { createToken } from "./jwt-utils.js";
 
+// api for user class
 export const userApi = {
+
+  // find all method with jws validation and openAPI doc
   find: {
     auth: {
       strategy: "jwt",
@@ -23,6 +29,7 @@ export const userApi = {
     response: { schema: UserArray, failAction: validationError },
   },
 
+  // find method with jws validation and openAPI doc
   findOne: {
     auth: {
       strategy: "jwt",
@@ -45,6 +52,7 @@ export const userApi = {
     response: { schema: UserSpecPlus, failAction: validationError },
   },
 
+  // create method with jws validation and openAPI doc
   create: {
     auth: false,
     handler: async function (request, h) {
@@ -65,6 +73,7 @@ export const userApi = {
     response: { schema: UserSpecPlus, failAction: validationError },
   },
 
+  // delete all method with jws validation and openAPI doc
   deleteAll: {
     auth: {
       strategy: "jwt",
@@ -82,6 +91,7 @@ export const userApi = {
     notes: "All userApi removed from Playtime",
   },
 
+    // authenticate method with jws validation and openAPI doc
   authenticate: {
     auth: false,
     handler: async function (request, h) {
