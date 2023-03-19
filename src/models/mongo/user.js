@@ -1,3 +1,8 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+// mongo schema for user
+
+
 import Mongoose from "mongoose";
 import Boom from "@hapi/boom";
 

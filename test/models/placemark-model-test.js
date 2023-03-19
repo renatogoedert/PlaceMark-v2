@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
-import { testPlacemarks, cities } from "../fixtures.js";
+import { testPlacemarks, cities, beaches } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 import { EventEmitter } from "events";
 
@@ -32,7 +32,7 @@ suite("Placemark Model tests", () => {
 
   test("get a placemark - success", async () => {
     const placemark = await db.placemarkStore.addPlacemark(cities);
-    const returnedPlacemark = await db.placemarkStore.getPlacemarkById(placemark._id);
+    const returnedPlacemark = await db.placemarkStore.getPlacemarkById(placemark.id);
     assertSubset(returnedPlacemark, placemark);
   });
 

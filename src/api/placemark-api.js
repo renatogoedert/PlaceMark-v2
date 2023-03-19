@@ -1,9 +1,15 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import Boom from "@hapi/boom";
 import { IdSpec, PlacemarkArraySpec, PlacemarkSpec, PlacemarkSpecPlus } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 import { validationError } from "./logger.js";
 
+// api for placemark class
 export const placemarkApi = {
+
+  // find all method with jws validation and openAPI doc
   find: {
     auth: {
       strategy: "jwt",
@@ -22,6 +28,7 @@ export const placemarkApi = {
     notes: "Returns all placemarks",
   },
 
+  // find method with jws validation and openAPI doc
   findOne: {
     auth: {
       strategy: "jwt",
@@ -44,6 +51,7 @@ export const placemarkApi = {
     response: { schema: PlacemarkSpecPlus, failAction: validationError },
   },
 
+  // create method with jws validation and openAPI doc
   create: {
     auth: {
       strategy: "jwt",
@@ -67,6 +75,7 @@ export const placemarkApi = {
     response: { schema: PlacemarkSpecPlus, failAction: validationError },
   },
 
+    // delete method with jws validation and openAPI doc
   deleteOne: {
     auth: {
       strategy: "jwt",
@@ -88,6 +97,7 @@ export const placemarkApi = {
     validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
+  // delete all method with jws validation and openAPI doc
   deleteAll: {
     auth: {
       strategy: "jwt",

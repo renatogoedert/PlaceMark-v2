@@ -1,6 +1,10 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 
+// controller to render index view
 export const accountsController = {
   index: {
     auth: false,
@@ -14,6 +18,8 @@ export const accountsController = {
       return h.view("signup-view", { title: "Sign up for Placemark" });
     },
   },
+
+  // signup method, validation off to have a valid path
   signup: {
     auth: false,
     validate: {
@@ -29,12 +35,16 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
+
+  // showLogin  method, validation off to have a valid path
   showLogin: {
     auth: false,
     handler: function (request, h) {
       return h.view("login-view", { title: "Login to Placemark" });
     },
   },
+
+  // login  method, with admin validation tests validation off to have a valid path
   login: {
     auth: false,
     validate: {
@@ -58,6 +68,8 @@ export const accountsController = {
       return h.redirect("/dashboard");
     },
   },
+  
+  // logout  method, validation off to have a valid path
   logout: {
     auth: false,
     handler: function (request, h) {
@@ -66,6 +78,7 @@ export const accountsController = {
     },
   },
 
+  // validate  method, validation off to have a valid path
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {
