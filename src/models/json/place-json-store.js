@@ -28,7 +28,7 @@ export const placeJsonStore = {
   },
 
   // method to find one place using placemarkid
-  async getPlacesByPlacemarkId(id) {
+  async getPlaceByPlacemarkId(id) {
     await db.read();
     return db.data.places.filter((place) => place.placemarkid === id);
   },

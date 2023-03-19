@@ -8,7 +8,7 @@ suite("Place Model tests", () => {
   let beachesList = null;
 
   setup(async () => {
-    db.init("");
+    db.init("mongo");
     await db.placemarkStore.deleteAllPlacemarks();
     await db.placeStore.deleteAllPlaces();
     beachesList = await db.placemarkStore.addPlacemark(beaches);
@@ -65,4 +65,5 @@ suite("Place Model tests", () => {
     const places = await db.placeStore.getAllPlaces();
     assert.equal(places.length, testPlacemarks.length);
   });
+  
 });

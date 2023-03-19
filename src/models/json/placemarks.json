@@ -1,8 +1,20 @@
 {
   "placemarks": [
     {
-      "name": "beaches to visit",
-      "_id": "81fb0a27-e055-44ab-bc98-dfe87ad96eb0"
+      "name": "cities to visit",
+      "_id": "eea20edd-fab8-4a8e-a68a-fda0b03ae7b1"
+    },
+    {
+      "name": "cities to live",
+      "_id": "a07f5389-ad0d-4917-a021-425e1685c0f3"
+    },
+    {
+      "name": "rivers to swim",
+      "_id": "24f2634f-0ac9-4d85-b0d1-6aa28f320037"
+    },
+    {
+      "name": "cities to visit",
+      "_id": "e9c4f887-57a1-4c90-a324-e6845fb8ec1f"
     }
   ]
 }
