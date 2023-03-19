@@ -8,7 +8,7 @@ EventEmitter.setMaxListeners(25);
 suite("Placemark Model tests", () => {
 
   setup(async () => {
-    db.init("mongo");
+    db.init("");
     await db.placemarkStore.deleteAllPlacemarks();
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop

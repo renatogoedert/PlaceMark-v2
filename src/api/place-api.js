@@ -1,9 +1,15 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { IdSpec, PlaceSpec, PlaceSpecPlus, PlaceArraySpec } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
+// api for places class
 export const placeApi = {
+
+  // find all method with jws validation and openAPI doc
   find: {
     auth: {
       strategy: "jwt",
@@ -22,6 +28,7 @@ export const placeApi = {
     notes: "Returns all placeApi",
   },
 
+  // find method with jws validation and openAPI doc
   findOne: {
     auth: {
       strategy: "jwt",
@@ -44,6 +51,7 @@ export const placeApi = {
     response: { schema: PlaceSpecPlus, failAction: validationError },
   },
 
+  // create method with jws validation and openAPI doc
   create: {
     auth: {
       strategy: "jwt",
@@ -66,6 +74,7 @@ export const placeApi = {
     response: { schema: PlaceSpecPlus, failAction: validationError },
   },
 
+  // delete all method with jws validation and openAPI doc
   deleteAll: {
     auth: {
       strategy: "jwt",
@@ -82,6 +91,7 @@ export const placeApi = {
     description: "Delete all placeApi",
   },
 
+  // delete method with jws validation and openAPI doc
   deleteOne: {
     auth: {
       strategy: "jwt",

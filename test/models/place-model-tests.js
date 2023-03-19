@@ -8,7 +8,7 @@ suite("Place Model tests", () => {
   let beachesList = null;
 
   setup(async () => {
-    db.init("mongo");
+    db.init("");
     await db.placemarkStore.deleteAllPlacemarks();
     await db.placeStore.deleteAllPlaces();
     beachesList = await db.placemarkStore.addPlacemark(beaches);
@@ -40,17 +40,18 @@ suite("Place Model tests", () => {
   });
 
   test("get a place - success", async () => {
-    const berlinList = await db.placemarkStore.addPlacemark(berlin);
-    const place = await db.placeStore.addPlace(berlinList._id, cities)
+    const beachesList = await db.placemarkStore.addPlacemark(beaches);
+    const place = await db.placeStore.addPlace(beachesList._id, cities)
     const newPlace = await db.placeStore.getPlaceById(place._id);
     assertSubset (cities, newPlace);
   });
 
   test("delete One Place - success", async () => {
-    await db.placeStore.deletePlace(testPlaces[0]._id);
+    const id = testPlaces[0]._id;
+    await db.placeStore.deletePlace(id);
     const places = await db.placeStore.getAllPlaces();
     assert.equal(places.length, testPlacemarks.length - 1);
-    const deletedPlace = await db.placeStore.getPlaceById(testPlaces[0]._id);
+    const deletedPlace = await db.placeStore.getPlaceById(id);
     assert.isNull(deletedPlace);
   });
 

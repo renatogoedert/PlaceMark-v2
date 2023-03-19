@@ -1,6 +1,9 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import { db } from "../models/db.js";
 
-
+// controller to render index view
 export const adminController = {
   index: {
     handler: async function (request, h) {
@@ -13,6 +16,7 @@ export const adminController = {
     },
   },
 
+  // delete a user method
   deleteUser: {
     handler: async function (request, h) {
       const user = await db.userStore.getUserById(request.params.id);

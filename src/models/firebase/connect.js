@@ -1,9 +1,13 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import dotenv from "dotenv";
 
+// starting .env
 dotenv.config();
 
+// setting keys for firebase auth 
 const firebaseConfig = {
     apiKey: process.env.api_key,
     authDomain: process.env.auth_domain,
@@ -13,9 +17,11 @@ const firebaseConfig = {
     appId: process.env.app_id,
     measurementId: process.env.measurement_id
   };
-  
+ 
+// initialisating database with config
 firebase.initializeApp(firebaseConfig);
 
-const fireStore = await firebase.firestore();
+// setting firestore to export
+const fireStore = firebase.firestore();
 
 export { fireStore };

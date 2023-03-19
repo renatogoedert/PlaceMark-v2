@@ -1,3 +1,6 @@
+// Code Developed By Renato
+// email:20099697@mail.wit.ie
+
 import { userMemStore } from "./mem/user-mem-store.js";
 import { placemarkMemStore } from "./mem/placemark-mem-store.js";
 import { placeMemStore } from "./mem/place-mem-store.js";
@@ -15,11 +18,13 @@ import { userFireStore } from "./firebase/user-fire-store.js";
 import { placemarkFireStore } from "./firebase/placemark-fire-store.js";
 import { placeFireStore } from "./firebase/place-fire-store.js";
 
+// method to export the databases soters
 export const db = {
   userStore: null,
   placemarkStore: null,
   placeStore: null,
 
+  // statment to choose between the diferent kidn of models for db
   init(storeType) {
     switch (storeType) {
       case "json":
