@@ -8,6 +8,7 @@ import { placemarkController } from "./controllers/placemark-controller.js";
 import { adminController } from "./controllers/admin-controller.js";
 import { adminDashboardController } from "./controllers/admin-dashboard-controller.js";
 import { placeController } from "./controllers/place-controller.js";
+import { publicController } from "./controllers/public-controller.js";
 
 // routes for webapp
 export const webRoutes = [
@@ -43,4 +44,7 @@ export const webRoutes = [
   { method: "GET", path: "/admindashboard", config: adminDashboardController.index },
   { method: "GET", path: "/adminusers", config: adminController.index },
   { method: "GET", path: "/adminusers/deleteuser/{id}", config: adminController.deleteUser },
+
+  // routes for public
+  { method: "GET", path: "/public", config: publicController.index },
 ];

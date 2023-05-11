@@ -18,6 +18,11 @@ export const placeMongoStore = {
     return places;
   },
 
+  async getPublicPlaces() {
+    const places = await Place.find({ isPublic: true }).lean();
+    return places;
+  },
+
   // method to add an place
   async addPlace(placemarkId, place) {
     place.placemarkid = placemarkId;
