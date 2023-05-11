@@ -12,6 +12,7 @@ const placeSchema = new Schema({
   lon: Number,
   des: String,
   img: String,
+  isPublic: Boolean,
   placemarkid: {
     type: Schema.Types.ObjectId,
     ref: "Placemark",
