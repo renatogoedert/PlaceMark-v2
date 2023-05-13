@@ -36,6 +36,7 @@ export const PlaceSpec = Joi.object()
   lat: Joi.number().allow("").required().example(53.34),
   lon: Joi.number().allow("").required().example(-6.26),
   des: Joi.string().optional().example("Dublin, capital of the Republic of Ireland"),
+  isPublic: Joi.string().allow("").example(true),
   placemarkid: IdSpec,
 })
 .label("Place");
