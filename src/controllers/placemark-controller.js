@@ -34,6 +34,7 @@ export const placemarkController = {
         lat: Number(request.payload.lat),
         lon: Number(request.payload.lon),
         des: request.payload.des,
+        isPublic: Boolean(request.payload.isPublic)
       };
       await db.placeStore.addPlace(placemark._id, newPlace);
       return h.redirect(`/placemark/${placemark._id}`);
