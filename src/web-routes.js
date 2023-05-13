@@ -47,4 +47,8 @@ export const webRoutes = [
 
   // routes for public
   { method: "GET", path: "/public", config: publicController.index },
+
+  // routes for place
+  { method: "GET", path: "/place/{id}", config: placeController.index },
+  { method: "POST", path: "/place/{id}/addreview", config: placeController.addReview },
 ];

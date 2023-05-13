@@ -13,6 +13,7 @@ import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { placemarkMongoStore } from "./mongo/placemark-mongo-store.js";
 import { placeMongoStore } from "./mongo/place-mongo-store.js";
+import { reviewMongoStore } from "./mongo/review-mongo-store.js";
 
 import { userFireStore } from "./firebase/user-fire-store.js";
 import { placemarkFireStore } from "./firebase/placemark-fire-store.js";
@@ -36,6 +37,7 @@ export const db = {
         this.userStore = userMongoStore;
         this.placemarkStore = placemarkMongoStore;
         this.placeStore = placeMongoStore;
+        this.reviewStore = reviewMongoStore;
         connectMongo();
         break;
         case "firebase":

@@ -1,24 +1,44 @@
 // Code Developed By Renato
 // email:20099697@mail.wit.ie
 
-import { PlaceSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 import { imageStore } from "../models/image-store.js";
+import { ReviewSpec } from "../models/joi-schemas.js";
 
 // controller to render index view
 export const placeController = {
   index: {
     handler: async function (request, h) {
-      const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-      const place = await db.placeStore.getPlaceById(request.params.placeid);
+      const place = await db.placeStore.getPlaceById(request.params.id);
       const viewData = {
-        title: "Edit place",
-        placemark: placemark,
+        title: "Place",
         place: place,
       };
       return h.view("place-view", viewData);
     },
   },
+
+    // method to add one place with validation
+    addReview: {
+      validate: {
+        payload: ReviewSpec,
+        options: { abortEarly: false },
+        failAction: function (request, h, error) {
+          return h.view("placemark-view", { title: "Add place error", errors: error.details }).takeover().code(400);
+        },
+      },
+      handler: async function (request, h) {
+        const place = await db.placeStore.getPlaceById(request.params.id);
+        const newReview = {
+          name: request.payload.name,
+          rating: Number(request.payload.rating),
+          fullReview: request.payload.fullReview,
+          postAt: new Date(),
+        };
+        await db.reviewStore.addReview(place._id, newReview);
+        return h.redirect(`/place/${place._id}`);
+      },
+    },
  
   // method to upload a image in cloudinary
   uploadImage: {

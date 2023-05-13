@@ -1,0 +1,32 @@
+<table class="table is-fullwidth">
+  {{#each place.reviews}}
+  <div class="card">
+    
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+        <p class="title is-4"> {{name}}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      {{fullReview}}
+        </div>
+    </div>
+    
+    <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        Rating: {{rating}}
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        Date: {{postAt}}
+      </span>
+    </p>
+    </footer>
+    </div>
+  </div>
+  {{/each}}
+</table>
