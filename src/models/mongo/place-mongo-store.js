@@ -2,7 +2,7 @@
 // email:20099697@mail.wit.ie
 
 import { Place } from "./place.js";
-import { Placemark } from "./placemark.js";
+import { reviewMongoStore } from "./review-mongo-store.js";
 
 // store for places in mongo db
 export const placeMongoStore = {
@@ -35,6 +35,9 @@ export const placeMongoStore = {
   async getPlaceById(id) {
     if (id) {
       const place = await Place.findOne({ _id: id }).lean();
+      if (place) {
+        place.reviews = await reviewMongoStore.getReviewsByPlaceId(place._id);
+      }
       return place;
     }
     return null;

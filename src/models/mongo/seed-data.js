@@ -136,6 +136,21 @@ export const seedData = {
         img:"https://www.chelmsfordlibrary.org/wp-content/uploads/simpsons-elementary.jpg",
         placemarkid: "->placemarks.homerrun"
       },
+    },
+    reviews: {
+      _model : "Review",
+      review_1 : {
+        name: "Bart",
+        fullReview: "A school is hellish designed to provide nothing",
+        rating: 1,
+        placeid: "->places.place_3"
+      },
+      review_2 : {
+        name: "Lisa",
+        fullReview: "A school is an educational institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers.",
+        rating: 5,
+        placeid: "->places.place_3"
+      },
     }
   };
   

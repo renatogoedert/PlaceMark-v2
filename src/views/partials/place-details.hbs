@@ -1,0 +1,37 @@
+<table class="table is-fullwidth">
+  <div class="card">
+    
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+        <p class="title is-4"> {{place.name}}</p>
+      </div>
+    </div>
+    
+    {{> place2-image }}
+
+    <div class="content">
+      {{place.des}}
+        </div>
+    </div>
+    
+    <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        Latitude: {{place.lat}}
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        Longitude: {{place.lon}}
+      </span>
+    </p>
+     <p class="card-footer-item">
+      <span>
+        Public: {{place.isPublic}}
+      </span>
+    </p>
+  </footer>
+    </div>
+  </div>
+</table>

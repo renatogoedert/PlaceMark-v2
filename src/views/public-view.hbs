@@ -1,34 +1,40 @@
-<table class="table is-fullwidth">
-  {{#each places}}
-  <div class="card">
-    
-    <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-        <p class="title is-4"> {{name}}</p>
+{{> menu active="dashboard"}}
+
+<section class="section">
+
+  <table class="table is-fullwidth">
+    {{#each places}}
+    <div class="card">
+      
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+          <p class="title is-4"> {{name}}</p>
+        </div>
+      </div>
+      
+      {{> place-image }}
+
+      <div class="content">
+        {{des}}
+          </div>
+      </div>
+      
+      <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          Latitude: {{lat}}
+        </span>
+      </p>
+      <p class="card-footer-item">
+        <span>
+          Longitude: {{lon}}
+        </span>
+      </p>
+    </footer>
       </div>
     </div>
-    
-    {{> place-image }}
-
-    <div class="content">
-      {{des}}
-        </div>
-    </div>
-    
-    <footer class="card-footer">
-    <p class="card-footer-item">
-      <span>
-        Latitude: {{lat}}
-      </span>
-    </p>
-    <p class="card-footer-item">
-      <span>
-        Longitude: {{lon}}
-      </span>
-    </p>
-  </footer>
-    </div>
-  </div>
-  {{/each}}
-</table>
+    {{/each}}
+  </table>
+  
+</section>

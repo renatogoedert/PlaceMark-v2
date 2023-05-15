@@ -2,7 +2,7 @@
 // email:20099697@mail.wit.ie
 
 import { Placemark } from "./placemark.js";
-import {placeMongoStore } from "./place-mongo-store.js";
+import { placeMongoStore } from "./place-mongo-store.js";
 
 // store for placemarks in mongo db
 export const placemarkMongoStore = {
