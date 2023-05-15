@@ -33,3 +33,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           cookie_name: donation-web
           cookie_password: secretpasswordnotrevealedtoanyone
+          db: mongodb+srv://20099697:130340Aa@cluster0.c39xkyc.mongodb.net/?retryWrites=true&w=majority
+          cloudinary_name: dic1pkwyg
+          cloudinary_key: 598772648359753
+          cloudinary_secret: njQ6JHhZoX23ywESPozd7d4PjPg
+          api_key: AIzaSyASlA2pzfG_mqtWm5fcmaxFGwvFb_qmoRU
+          auth_domain: placemark-56036.firebaseapp.com
+          project_id: placemark-56036
+          storage_bucket: placemark-56036.appspot.com
+          messaging_sender_id: 345042523373
+          app_id: 1:345042523373:web:07cfa4345e57316b2928e4
+          measurement_id: G-KJW6T69X30
+          CYPRESS_RECORD_KEY: e9b68939-cf3a-4eda-8c5e-fc5b4d51ca2e
