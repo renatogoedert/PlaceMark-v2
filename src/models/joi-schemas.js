@@ -53,6 +53,7 @@ export const PlaceArraySpec = Joi.array().items(PlaceSpecPlus).label("PlaceArray
 export const PlacemarkSpec = Joi.object()
 .keys({
   name: Joi.string().required().example("cities"),
+  isFavourite: Joi.boolean().allow("").example(true),
   userid: IdSpec,
   places: PlaceArraySpec,
 })

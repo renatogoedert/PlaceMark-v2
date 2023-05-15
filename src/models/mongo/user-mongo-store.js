@@ -2,6 +2,7 @@
 // email:20099697@mail.wit.ie
 
 import { User } from "./user.js";
+import { placemarkMongoStore } from "./placemark-mongo-store.js";
 
 // store for places in mongo db
 export const userMongoStore = {
@@ -24,6 +25,12 @@ export const userMongoStore = {
   async addUser(user) {
     const newUser = new User(user);
     const userObj = await newUser.save();
+    const newPlacemark = {
+      userid: userObj._id,
+      name: "Favourites",
+      isFavourite: true,
+    };
+    await placemarkMongoStore.addPlacemark(newPlacemark);
     const u = await this.getUserById(userObj._id);
     return u;
   },

@@ -3,6 +3,7 @@
 
 import { Place } from "./place.js";
 import { reviewMongoStore } from "./review-mongo-store.js";
+import { placemarkMongoStore } from "./placemark-mongo-store.js";
 
 // store for places in mongo db
 export const placeMongoStore = {
@@ -26,6 +27,15 @@ export const placeMongoStore = {
   // method to add an place
   async addPlace(placemarkId, place) {
     place.placemarkid = placemarkId;
+    const newPlace = new Place(place);
+    const placeObj = await newPlace.save();
+    return this.getPlaceById(placeObj._id);
+  },
+
+  // method to add an place to favourites
+  async addPlaceToFavourites(place) {
+    favouritePlacemark = await placemarkMongoStore.getPlacemarkByName("Favourites")
+    place.placemarkId = favouritePlacemark._id;
     const newPlace = new Place(place);
     const placeObj = await newPlace.save();
     return this.getPlaceById(placeObj._id);

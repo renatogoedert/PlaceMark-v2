@@ -18,27 +18,27 @@ export const placeController = {
     },
   },
 
-    // method to add one place with validation
-    addReview: {
-      validate: {
-        payload: ReviewSpec,
-        options: { abortEarly: false },
-        failAction: function (request, h, error) {
-          return h.view("placemark-view", { title: "Add place error", errors: error.details }).takeover().code(400);
-        },
-      },
-      handler: async function (request, h) {
-        const place = await db.placeStore.getPlaceById(request.params.id);
-        const newReview = {
-          name: request.payload.name,
-          rating: Number(request.payload.rating),
-          fullReview: request.payload.fullReview,
-          postAt: new Date(),
-        };
-        await db.reviewStore.addReview(place._id, newReview);
-        return h.redirect(`/place/${place._id}`);
+  // method to add one place with validation
+  addReview: {
+    validate: {
+      payload: ReviewSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("placemark-view", { title: "Add place error", errors: error.details }).takeover().code(400);
       },
     },
+    handler: async function (request, h) {
+      const place = await db.placeStore.getPlaceById(request.params.id);
+      const newReview = {
+        name: request.payload.name,
+        rating: Number(request.payload.rating),
+        fullReview: request.payload.fullReview,
+        postAt: new Date(),
+      };
+      await db.reviewStore.addReview(place._id, newReview);
+      return h.redirect(`/place/${place._id}`);
+    },
+  },
  
   // method to upload a image in cloudinary
   uploadImage: {
@@ -62,6 +62,25 @@ export const placeController = {
       output: "data",
       maxBytes: 209715200,
       parse: true,
+    },
+  },
+
+  // method to add one place 
+  addToFavourites: {
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const place = await db.placeStore.getPlaceById(request.params.id);
+      const newPlace = {
+        name: place.name,
+        lat: Number(place.lat),
+        lon: Number(place.lon),
+        des: place.des,
+        img: place.img,
+        isPublic: Boolean(place.isPublic)
+      };
+      const placemark = await db.placemarkStore.getUserFavouritePlacemark(loggedInUser._id);
+      await db.placeStore.addPlace(placemark._id, newPlace);
+      return h.redirect(`/dashboard`);
     },
   },
 };
