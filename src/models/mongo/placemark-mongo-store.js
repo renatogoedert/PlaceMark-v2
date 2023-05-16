@@ -24,6 +24,24 @@ export const placemarkMongoStore = {
     return null;
   },
 
+  // method to find one placemark using id
+  async getPlacemarkByName(name) {
+    if (name) {
+      const placemark = await Placemark.findOne({ name: name }).lean();
+      if (placemark) {
+        placemark.places = await placeMongoStore.getPlacesByPlacemarkId(placemark._id);
+      }
+      return placemark;
+    }
+    return null;
+  },
+
+  // method to find one placemark using id
+  async getUserFavouritePlacemark(id) {
+    const placemark = await Placemark.findOne({ userid: id, isFavourite: true }).lean();
+    return placemark;
+  },
+
   // method to add an placemark
   async addPlacemark(placemark) {
     const newPlacemark = new Placemark(placemark);

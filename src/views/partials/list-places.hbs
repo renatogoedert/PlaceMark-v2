@@ -3,15 +3,32 @@
   <div class="card">
     
     <div class="card-content">
+      <div class="media"></div>
       <div class="media">
+        <div class="media-fleft">
+        {{#ifCond isPublic true}}
+        <span class="icon is-small">
+          <i class="fas fa-user-friends"></i>
+        </span>
+        {{else}}
+        <span class="icon is-small">
+          <i class="fas fa-users-slash"></i>
+        </span>
+        {{/ifCond}}
+      </div>
         <div class="media-content">
         <p class="title is-4"> {{name}}</p>
-        <a href="/place/{{_id}}" class="button">
-          <span class="icon is-small">
-            <i class="fas fa-folder-open"></i>
-          </span>
-        </a>
       </div>
+      <a href="/place/{{_id}}" class="button">
+        <span class="icon is-small">
+          <i class="fas fa-folder-open"></i>
+        </span>
+      </a>
+      <a href="/place/{{_id}}/addfavourites" class="button">
+        <span class="icon is-small">
+          <i class="fas fa-star"></i>
+        </span>
+      </a>
     </div>
     
     {{> place-image }}
@@ -30,11 +47,6 @@
     <p class="card-footer-item">
       <span>
         Longitude: {{lon}}
-      </span>
-    </p>
-     <p class="card-footer-item">
-      <span>
-        Public: {{isPublic}}
       </span>
     </p>
     <p class="card-footer-item">

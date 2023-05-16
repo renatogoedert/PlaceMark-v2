@@ -10,9 +10,12 @@
             <i class="fas fa-folder-open"></i>
           </span>
         </a>
+        {{#ifCond isFavourite true}}
+        {{else}}
         <a href="/dashboard/deleteplacemark/{{_id}}" class="button">
           <i class="fas fa-trash"></i>
         </a>
+        {{/ifCond}}
         </div>
     </div>
   </div>

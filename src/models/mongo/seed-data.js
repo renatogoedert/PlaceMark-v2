@@ -40,8 +40,17 @@ export const seedData = {
         name: "To Run",
         userid: "->users.bart"
       },
+      bartfavourites: {
+        name: "Favourites",
+        userid: "->users.bart",
+        isFavourite: true
+      },
       margevisit: {
         name: "To Visit",
+        userid: "->users.marge"
+      },
+      margefavourites: {
+        name: "Favourites",
         userid: "->users.marge"
       },
       homervisit: {
@@ -50,6 +59,10 @@ export const seedData = {
       },
       homerrun: {
         name: "To Run",
+        userid: "->users.homer"
+      },
+      homerfavourites: {
+        name: "Favourites",
         userid: "->users.homer"
       }
     },
