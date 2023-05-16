@@ -4,6 +4,8 @@
 import { db } from "../models/db.js";
 import { imageStore } from "../models/image-store.js";
 import { ReviewSpec } from "../models/joi-schemas.js";
+import clipboard from "clipboardy";
+import url from "url";
 
 // controller to render index view
 export const placeController = {
@@ -81,6 +83,17 @@ export const placeController = {
       const placemark = await db.placemarkStore.getUserFavouritePlacemark(loggedInUser._id);
       await db.placeStore.addPlace(placemark._id, newPlace);
       return h.redirect(`/dashboard`);
+    },
+  },
+
+  shareLink: {
+    handler: async function (request, h) {
+      const host = request.headers.host;
+      const link = `http://${host}${request.raw.req.url}`;
+      const parts = link.split('/').filter(part => part !== 'sharelink');
+      const modifiedLink = parts.join('/');
+      await clipboard.write(modifiedLink);
+      return h.redirect(`/place/${request.params.id}`);
     },
   },
 };

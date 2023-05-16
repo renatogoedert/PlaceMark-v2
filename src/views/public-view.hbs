@@ -6,22 +6,22 @@
     {{#each places}}
     <div class="card">
       
-      <div class="card-content">
-        <div class="media">
-          <div class="media-content">
-          <p class="title is-4"> {{name}}</p>
-          <a href="/place/{{_id}}" class="button">
-          <span class="icon is-small">
-            <i class="fas fa-folder-open"></i>
-          </span>
-        </a>
-        <a href="/place/addfavourites" class="button">
-          <span class="icon is-small">
-            <i class="fas fa-folder-open"></i>
-          </span>
-        </a>
-        </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+        <p class="title is-4"> {{name}}</p>
       </div>
+      <a href="/place/{{_id}}" class="button">
+        <span class="icon is-small">
+          <i class="fas fa-folder-open"></i>
+        </span>
+      </a>
+      <a href="/place/{{_id}}/addfavourites" class="button">
+        <span class="icon is-small">
+          <i class="fas fa-star"></i>
+        </span>
+      </a>
+    </div>
       
       {{> place-image }}
 
