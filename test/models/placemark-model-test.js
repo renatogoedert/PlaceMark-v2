@@ -34,6 +34,8 @@ suite("Placemark Model tests", () => {
     const placemark = await db.placemarkStore.addPlacemark(cities);
     const returnedPlacemark = await db.placemarkStore.getPlacemarkById(placemark.id);
     assertSubset(returnedPlacemark, placemark);
+    const returnedPlacemark2 = await db.placemarkStore.getPlacemarkByName(placemark.name);
+    assertSubset(returnedPlacemark2, placemark);
   });
 
   test("delete One Placemark - success", async () => {

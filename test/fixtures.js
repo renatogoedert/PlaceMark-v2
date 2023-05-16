@@ -55,7 +55,14 @@ export const berlin = {
   name: "Berlin",
   lat: 52.52,
   lon: 13.40,
-  des: "Berlin, Germany capital, dates to the 13th century."
+  des: "Berlin, Germany capital, dates to the 13th century.",
+};
+
+export const city = {
+  name: "Berlin",
+  lat: 52.52,
+  lon: 13.40,
+  des: "Berlin, Germany capital, dates to the 13th century.",
 };
 
 export const testPlaces = [
@@ -77,6 +84,33 @@ export const testPlaces = [
     lon: 2.35,
     des: "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture."
   }
+];
+
+export const homerReview = [
+  {
+    name: "Homer",
+    rating: 2,
+    fullReview: "Berlin, Germany capital, dates to the 13th century."
+  },
+];
+
+export const testReviews = [
+  {
+    name: "Homer",
+    rating: 2,
+    fullReview: "Berlin, Germany capital, dates to the 13th century."
+  },
+  {
+    name: "Lisa",
+    rating: 5,
+    fullReview: "Dublin, capital of the Republic of Ireland, is on Ireland east coast at the mouth of the River Liffey."
+  },
+  {
+    name: "Margie",
+    rating: 4,
+    fullReview: "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture."
+  }
+
 ];
 
 export const serviceUrl = "https://placemark-beta123.onrender.com";

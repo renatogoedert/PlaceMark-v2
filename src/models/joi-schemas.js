@@ -53,6 +53,7 @@ export const PlaceArraySpec = Joi.array().items(PlaceSpecPlus).label("PlaceArray
 export const PlacemarkSpec = Joi.object()
 .keys({
   name: Joi.string().required().example("cities"),
+  isFavourite: Joi.boolean().allow("").example(true),
   userid: IdSpec,
   places: PlaceArraySpec,
 })
@@ -65,6 +66,25 @@ export const PlacemarkSpecPlus = PlacemarkSpec.keys({
 }).label("PlacemarkPlus");
 
 export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
+
+  // spec for reviews
+export const ReviewSpec = Joi.object()
+.keys({
+  name: Joi.string().required().example("Homer"),
+  rating: Joi.number().allow("").required().example(4),
+  fullReview: Joi.string().required().example("Great movie, made me enjoy cinemas again"),
+})
+.label("Review");
+
+// adding Id and V for swagger
+export const ReviewSpecPlus = ReviewSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("ReviewPlus");
+
+export const ReviewArraySpec = Joi.array().items(ReviewSpecPlus).label("ReviewArray");
+
+
 
 // schema for jwt autentification
 export const JwtAuth = Joi.object()

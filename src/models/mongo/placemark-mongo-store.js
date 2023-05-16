@@ -2,7 +2,7 @@
 // email:20099697@mail.wit.ie
 
 import { Placemark } from "./placemark.js";
-import {placeMongoStore } from "./place-mongo-store.js";
+import { placeMongoStore } from "./place-mongo-store.js";
 
 // store for placemarks in mongo db
 export const placemarkMongoStore = {
@@ -22,6 +22,24 @@ export const placemarkMongoStore = {
       return placemark;
     }
     return null;
+  },
+
+  // method to find one placemark using id
+  async getPlacemarkByName(name) {
+    if (name) {
+      const placemark = await Placemark.findOne({ name: name }).lean();
+      if (placemark) {
+        placemark.places = await placeMongoStore.getPlacesByPlacemarkId(placemark._id);
+      }
+      return placemark;
+    }
+    return null;
+  },
+
+  // method to find one placemark using id
+  async getUserFavouritePlacemark(id) {
+    const placemark = await Placemark.findOne({ userid: id, isFavourite: true }).lean();
+    return placemark;
   },
 
   // method to add an placemark
