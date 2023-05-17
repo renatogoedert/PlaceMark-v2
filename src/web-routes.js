@@ -52,6 +52,7 @@ export const webRoutes = [
   // routes for place
   { method: "GET", path: "/place/{id}", config: placeController.index },
   { method: "POST", path: "/place/{id}/addreview", config: placeController.addReview },
+  { method: "POST", path: "/place/{id}/adddiscussion", config: placeController.addDiscussion },
   { method: "GET", path: "/place/{id}/addfavourites", config: placeController.addToFavourites },
   { method: "GET", path: "/place/{id}/sharelink", config: placeController.shareLink },
 

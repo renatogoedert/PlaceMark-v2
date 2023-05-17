@@ -84,6 +84,21 @@ export const ReviewSpecPlus = ReviewSpec.keys({
 
 export const ReviewArraySpec = Joi.array().items(ReviewSpecPlus).label("ReviewArray");
 
+  // spec for discussion
+export const DiscussionSpec = Joi.object()
+.keys({
+  text: Joi.string().required().example("Great movie, made me enjoy cinemas again"),
+})
+.label("Discussion");
+
+// adding Id and V for swagger
+export const DiscussionSpecPlus = DiscussionSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("DiscussionPlus");
+
+export const DiscussionArraySpec = Joi.array().items(DiscussionSpecPlus).label("DiscussionArray");
+
 
 
 // schema for jwt autentification

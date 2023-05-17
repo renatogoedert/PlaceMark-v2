@@ -134,4 +134,27 @@ export const testNotices = [
   }
 ];
 
+export const homerDiscussion = [
+  {
+    name: "Homer",
+    text: "Berlin, Germany capital, dates to the 13th century."
+  },
+];
+
+export const testDiscussions = [
+  {
+    name: "Homer",
+    text: "Berlin, Germany capital, dates to the 13th century."
+  },
+  {
+    name: "Lisa",
+    text: "Dublin, capital of the Republic of Ireland, is on Ireland east coast at the mouth of the River Liffey."
+  },
+  {
+    name: "Margie",
+    text: "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture."
+  }
+
+];
+
 export const serviceUrl = "https://placemark-beta123.onrender.com";
