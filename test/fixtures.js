@@ -113,4 +113,25 @@ export const testReviews = [
 
 ];
 
+export const noticeA = {
+  text: "cities to visit"
+};
+
+export const noticeB = {
+  text: "beaches to visit"
+};
+
+
+export const testNotices = [
+  {
+    text: "cities to visit"
+  },
+  {
+    text: "cities to live"
+  },
+  {
+    text: "rivers to swim"
+  }
+];
+
 export const serviceUrl = "https://placemark-beta123.onrender.com";

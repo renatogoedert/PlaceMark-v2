@@ -51,7 +51,8 @@ export const seedData = {
       },
       margefavourites: {
         name: "Favourites",
-        userid: "->users.marge"
+        userid: "->users.marge",
+        isFavourite: true
       },
       homervisit: {
         name: "To Visit",
@@ -63,7 +64,8 @@ export const seedData = {
       },
       homerfavourites: {
         name: "Favourites",
-        userid: "->users.homer"
+        userid: "->users.homer",
+        isFavourite: true
       }
     },
     places: {
