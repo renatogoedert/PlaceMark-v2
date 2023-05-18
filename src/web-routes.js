@@ -9,6 +9,7 @@ import { adminController } from "./controllers/admin-controller.js";
 import { adminDashboardController } from "./controllers/admin-dashboard-controller.js";
 import { placeController } from "./controllers/place-controller.js";
 import { publicController } from "./controllers/public-controller.js";
+import { noticeboardController } from "./controllers/noticeboard-controller.js";
 
 // routes for webapp
 export const webRoutes = [
@@ -51,6 +52,10 @@ export const webRoutes = [
   // routes for place
   { method: "GET", path: "/place/{id}", config: placeController.index },
   { method: "POST", path: "/place/{id}/addreview", config: placeController.addReview },
+  { method: "POST", path: "/place/{id}/adddiscussion", config: placeController.addDiscussion },
   { method: "GET", path: "/place/{id}/addfavourites", config: placeController.addToFavourites },
-  { method: "GET", path: "/place/{id}/sharelink", config: placeController.shareLink }
+  { method: "GET", path: "/place/{id}/sharelink", config: placeController.shareLink },
+
+  // routes for noticeboard
+  { method: "GET", path: "/noticeboard", config: noticeboardController.index },
 ];

@@ -15,19 +15,19 @@ export const seedData = {
         firstName: "Homer",
         lastName: "Simpson",
         email: "homer@simpson.com",
-        password: "secret"
+        password: "$2a$10$NtHIQ1P15w.akYH1oQ36mefdcut3pSQiQhhjlCgxyqXao3QOfRy6q"
       },
       marge: {
         firstName: "Marge",
         lastName: "Simpson",
         email: "marge@simpson.com",
-        password: "secret"
+        password: "$2a$10$NtHIQ1P15w.akYH1oQ36mefdcut3pSQiQhhjlCgxyqXao3QOfRy6q"
       },
       bart: {
         firstName: "Bart",
         lastName: "Simpson",
         email: "bart@simpson.com",
-        password: "secret"
+        password: "$2a$10$NtHIQ1P15w.akYH1oQ36mefdcut3pSQiQhhjlCgxyqXao3QOfRy6q"
       }
     },
     placemarks: {
@@ -51,7 +51,8 @@ export const seedData = {
       },
       margefavourites: {
         name: "Favourites",
-        userid: "->users.marge"
+        userid: "->users.marge",
+        isFavourite: true
       },
       homervisit: {
         name: "To Visit",
@@ -63,7 +64,8 @@ export const seedData = {
       },
       homerfavourites: {
         name: "Favourites",
-        userid: "->users.homer"
+        userid: "->users.homer",
+        isFavourite: true
       }
     },
     places: {

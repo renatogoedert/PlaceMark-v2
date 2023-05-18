@@ -14,6 +14,8 @@ import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { placemarkMongoStore } from "./mongo/placemark-mongo-store.js";
 import { placeMongoStore } from "./mongo/place-mongo-store.js";
 import { reviewMongoStore } from "./mongo/review-mongo-store.js";
+import { noticeMongoStore } from "./mongo/notice-mongo-store.js";
+import { discussionMongoStore } from "./mongo/discussion-mongo-store.js";
 
 import { userFireStore } from "./firebase/user-fire-store.js";
 import { placemarkFireStore } from "./firebase/placemark-fire-store.js";
@@ -38,6 +40,8 @@ export const db = {
         this.placemarkStore = placemarkMongoStore;
         this.placeStore = placeMongoStore;
         this.reviewStore = reviewMongoStore;
+        this.noticeStore = noticeMongoStore;
+        this.discussionStore = discussionMongoStore;
         connectMongo();
         break;
         case "firebase":

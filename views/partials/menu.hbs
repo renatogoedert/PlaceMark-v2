@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    {{> placemark-brand}}
+  </div>
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a id="public" class="button" href="/public"> 
+          <span class="icon">
+            <i class="fas fa-user-friends"></i>
+          </span>
+          </a>
+          <a id="noticeboard" class="button" href="/dashboard"> 
+          <span class="icon">
+            <i class="fas fa-clipboard-list"></i>
+          </span> </a>
+          <a id="dashboard" class="button" href="/noticeboard"> 
+          <span class="icon">
+            <i class="fas fa-bell"></i>
+          </span> </a>
+          <a id="about" class="button" href="/about"> 
+          <span class="icon">
+            <i class="fas fa-info"></i>
+          </span>
+          </a>
+          <a id="logout" class="button" href="/logout">
+          <span class="icon">
+            <i class="fas fa-sign-out-alt"></i>
+          </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
