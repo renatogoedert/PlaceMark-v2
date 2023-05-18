@@ -4,6 +4,7 @@
 import { Place } from "./place.js";
 import { reviewMongoStore } from "./review-mongo-store.js";
 import { placemarkMongoStore } from "./placemark-mongo-store.js";
+import { discussionMongoStore } from "./discussion-mongo-store.js";
 
 // store for places in mongo db
 export const placeMongoStore = {
@@ -47,6 +48,7 @@ export const placeMongoStore = {
       const place = await Place.findOne({ _id: id }).lean();
       if (place) {
         place.reviews = await reviewMongoStore.getReviewsByPlaceId(place._id);
+        place.discussions = await discussionMongoStore.getDiscussionsByPlaceId(place._id);
       }
       return place;
     }

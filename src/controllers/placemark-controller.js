@@ -24,7 +24,7 @@ export const placemarkController = {
       payload: PlaceSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("placemark-view", { title: "Add place error", errors: error.details }).takeover().code(400);
+        return h.view("about-view", { title: "Add place error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
