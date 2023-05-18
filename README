@@ -10,6 +10,13 @@ Users: bart@simpson password: secret
 Users: marge@simpson password: secret
 
 # Placemark Changelog
+## version 1.2.0
+
+-Reviews model with rating added, UI to be improved
+-Tests for reviews added and passed
+-Coverage report for tests
+-Share functionality added
+-Favourites Placemark created
 
 ## version 1.1.0
 
