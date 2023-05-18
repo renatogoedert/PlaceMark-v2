@@ -10,6 +10,17 @@ Users: bart@simpson password: secret
 Users: marge@simpson password: secret
 
 # Placemark Changelog
+
+## version 1.3.0
+
+-Share functionality added to place
+-Discussion functionalty added to place
+-Review functionality added to places
+-Tests for new models
+-New UI - more improvements to be done
+-Hashing and salting for passwords
+-sanitizations with regex and custom msg
+
 ## version 1.2.0
 
 -Reviews model with rating added, UI to be improved
@@ -17,6 +28,7 @@ Users: marge@simpson password: secret
 -Coverage report for tests
 -Share functionality added
 -Favourites Placemark created
+-e2e test
 
 ## version 1.1.0
 
