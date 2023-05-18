@@ -10,8 +10,21 @@ export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).descrip
 // spec for users credentials
 export const UserCredentialsSpec = Joi.object()
   .keys({
-    email: Joi.string().email().example("homer@simpson.com").required(),
-    password: Joi.string().example("secret").required(),
+    email: Joi.string()
+      .email({ tlds: { allow: false } }) // Email format validation
+      .regex(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/) // Additional regex validation
+      .required()
+      .example("homer@simpson.com")
+      .messages({
+        'string.pattern.base': 'Invalid email format',
+      }),
+    password: Joi.string()
+      .regex(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/) // Password regex validation
+      .required()
+      .example("secret")
+      .messages({
+        'string.pattern.base': 'Password must contain at least one letter, one digit, and be at least 6 characters long',
+      }),
   })
   .label("UserCredentials");
 
@@ -33,8 +46,8 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 export const PlaceSpec = Joi.object()
 .keys({
   name: Joi.string().required().example("Dublin"),
-  lat: Joi.number().allow("").required().example(53.34),
-  lon: Joi.number().allow("").required().example(-6.26),
+  lat: Joi.number().min(-90).max(90).required().example(53.34),
+  lon: Joi.number().min(-180).max(180).required().example(-6.26),
   des: Joi.string().optional().example("Dublin, capital of the Republic of Ireland"),
   isPublic: Joi.string().allow("").example(true),
   placemarkid: IdSpec,
@@ -51,13 +64,19 @@ export const PlaceArraySpec = Joi.array().items(PlaceSpecPlus).label("PlaceArray
 
 // spec for placemarks
 export const PlacemarkSpec = Joi.object()
-.keys({
-  name: Joi.string().required().example("cities"),
-  isFavourite: Joi.boolean().allow("").example(true),
-  userid: IdSpec,
-  places: PlaceArraySpec,
-})
-.label("Placemark");
+  .keys({
+    name: Joi.string()
+      .regex(/^[A-Za-z'][A-Za-z0-9_' ]{7,29}$/)
+      .required()
+      .example("cities")
+      .messages({
+        'string.pattern.base': 'Name must start with a letter and be 8 to 30 characters long, containing only letters, numbers, and underscores',
+      }),
+    isFavourite: Joi.boolean().allow("").example(false),
+    userid: IdSpec,
+    places: PlaceArraySpec,
+  })
+  .label("Placemark");
 
 // adding Id and V for swagger
 export const PlacemarkSpecPlus = PlacemarkSpec.keys({
@@ -71,7 +90,7 @@ export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("Pl
 export const ReviewSpec = Joi.object()
 .keys({
   name: Joi.string().required().example("Homer"),
-  rating: Joi.number().allow("").required().example(4),
+  rating: Joi.number().integer().min(1).max(5).required().example(4),
   fullReview: Joi.string().required().example("Great movie, made me enjoy cinemas again"),
 })
 .label("Review");
