@@ -1,0 +1,22 @@
+{{#each placemarks}}
+  <div class="box box-link-hover-shadow">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">
+          {{name}}
+        </h2>
+        <a href="/placemark/{{_id}}" class="button">
+          <span class="icon is-small">
+            <i class="fas fa-folder-open"></i>
+          </span>
+        </a>
+        {{#ifCond isFavourite true}}
+        {{else}}
+        <a href="/dashboard/deleteplacemark/{{_id}}" class="button">
+          <i class="fas fa-trash"></i>
+        </a>
+        {{/ifCond}}
+        </div>
+    </div>
+  </div>
+{{/each}}
