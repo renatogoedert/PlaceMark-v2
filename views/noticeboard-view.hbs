@@ -1,0 +1,19 @@
+{{> menu active="noticeboard"}}
+
+<section class="section">
+
+  <table class="table is-fullwidth">
+    {{#each notices}}
+    <div class="card">
+      
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+        <p class="title is-4"> {{text}}</p>
+      </div>
+    </div>
+    </div>
+    {{/each}}
+  </table>
+  
+</section>

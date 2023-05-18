@@ -1,0 +1,24 @@
+<form class="box" action="/placemark/{{placemark._id}}/addplace" method="POST">
+  <label>Enter Place Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Name" name="name">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Latitude" name="lat">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Longitude" name="lon">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Description" name="des">
+      </div>
+      <div class="field">
+        <input class="checkbox" type="checkbox" name="isPublic">
+        Public
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Add Place</button>
+</form>
