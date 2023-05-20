@@ -10,7 +10,7 @@ const saltRounds = 10;
 // controller to render index view
 export const accountsController = {
   index: {
-    auth: 'github-oauth',
+    auth: false,
     handler: function (request, h) {
       return h.view("main", { title: "Welcome to Placemark" });
     },
