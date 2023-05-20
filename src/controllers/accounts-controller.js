@@ -16,7 +16,7 @@ export const accountsController = {
     },
   },
   showSignup: {
-    auth: false,
+    auth: 'github-oauth',
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up for Placemark" });
     },
@@ -42,7 +42,7 @@ export const accountsController = {
 
   // showLogin  method, validation off to have a valid path
   showLogin: {
-    auth: false,
+    auth: 'github-oauth',
     handler: function (request, h) {
       return h.view("login-view", { title: "Login to Placemark" });
     },
