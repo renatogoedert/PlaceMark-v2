@@ -16,7 +16,7 @@ export const accountsController = {
     },
   },
   showSignup: {
-    auth: 'github-oauth',
+    auth: false,
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up for Placemark" });
     },
