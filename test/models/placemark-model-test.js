@@ -57,4 +57,43 @@ suite("Placemark Model tests", () => {
     const allPlacemarks = await db.placemarkStore.getAllPlacemarks();
     assert.equal(testPlacemarks.length, allPlacemarks.length);
   });
+
+  test("get User Placemark - success", async () => {
+    const placemark = await db.placemarkStore.addPlacemark(cities);
+    const returnedPlacemark = await db.placemarkStore.getUserPlacemarks(placemark.userid);
+    assertSubset(returnedPlacemark, placemark);
+  });
+
+  test("get user Placemark - bad params", async () => {
+    assert.isNull(await db.placemarkStore.getUserPlacemarks(""));
+    assert.isNull(await db.placemarkStore.getUserPlacemarks());
+  });
+
+  test("Update Placemark - success", async () => {
+    const newName = "updatedName";
+    const newImg = "updatedImage";
+    const placemark = await db.placemarkStore.addPlacemark(cities);
+    placemark.name = newName;
+    placemark.img = newImg;
+    await db.placemarkStore.updatePlacemark(placemark);
+    const updatedPlacemark = await db.placemarkStore.getPlacemarkById(placemark._id);
+    assertSubset(updatedPlacemark.name, newName);
+    assertSubset(updatedPlacemark.img, newImg);
+  });
+
+  test("update Placemark - bad params", async () => {
+    assert.isNull(await db.placemarkStore.updatePlacemark(""));
+    assert.isNull(await db.placemarkStore.updatePlacemark());
+  });
+
+  test("get User Favourite Placemark - success", async () => {
+    const placemark = await db.placemarkStore.addPlacemark(beaches);
+    const returnedPlacemark = await db.placemarkStore.getUserFavouritePlacemark(beaches.userid);
+    assertSubset(returnedPlacemark, placemark);
+  });
+
+  test("get User Favourite Placemar - bad params", async () => {
+    assert.isNull(await db.placemarkStore.getUserFavouritePlacemark(""));
+    assert.isNull(await db.placemarkStore.getUserFavouritePlacemark());
+  });
 });

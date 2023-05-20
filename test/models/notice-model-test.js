@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
-import { testNotices, noticeA } from "../fixtures.js";
+import { testNotices, noticeA, noticeB } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 import { EventEmitter } from "events";
 
@@ -54,5 +54,16 @@ suite("Notice Model tests", () => {
     await db.noticeStore.deleteNoticeById("bad-id");
     const allNotices = await db.noticeStore.getAllNotices();
     assert.equal(testNotices.length, allNotices.length);
+  });
+
+  test("get User Notice - success", async () => {
+    const notice = await db.noticeStore.addNotice(noticeA);
+    const returnedNotice = await db.noticeStore.getUserNotices(notice.userid);
+    assertSubset(returnedNotice, notice);
+  });
+
+  test("get user Notice - bad params", async () => {
+    assert.isNull(await db.noticeStore.getUserNotices(""));
+    assert.isNull(await db.noticeStore.getUserNotices());
   });
 });

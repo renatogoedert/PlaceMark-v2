@@ -36,12 +36,13 @@ export const cities = {
 };
 
 export const beaches = {
-  name: "beaches to visit"
+  name: "beaches to visit",
+  isFavourite: true
 };
 
 export const testPlacemarks = [
   {
-    name: "cities to visit"
+    name: "cities to visit",
   },
   {
     name: "cities to live"
@@ -70,7 +71,8 @@ export const testPlaces = [
     name: "Berlin",
     lat: 52.52,
     lon: -6.26,
-    des: "Berlin, Germany capital, dates to the 13th century."
+    des: "Berlin, Germany capital, dates to the 13th century.",
+    isPublic: true
   },
   {
     name: "Dublin",
@@ -114,11 +116,11 @@ export const testReviews = [
 ];
 
 export const noticeA = {
-  text: "cities to visit"
+  text: "cities to visit",
 };
 
 export const noticeB = {
-  text: "beaches to visit"
+  text: "beaches to visit",
 };
 
 
