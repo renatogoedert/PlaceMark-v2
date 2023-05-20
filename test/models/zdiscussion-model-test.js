@@ -2,7 +2,9 @@ import { assert } from "chai";
 import { db } from "../../src/models/db.js";
 import { testDiscussions, testPlaces, cities, beaches, city, berlin, homerDiscussion } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
+import { EventEmitter } from "events";
 
+EventEmitter.setMaxListeners(50);
 suite("Discussion Model tests", () => {
 
   let beachesList = null;
