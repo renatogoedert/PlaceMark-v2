@@ -3,6 +3,7 @@
 
 import Hapi from "@hapi/hapi";
 import Vision from "@hapi/vision";
+import Bell from "@hapi/bell";
 import Handlebars from "handlebars";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -60,6 +61,7 @@ async function init() {
 
   // registering in the server dependencies
   await server.register(Vision);
+  await server.register(Bell);
   await server.register(Cookie);
   await server.register(Inert);
   await server.register(jwt);
@@ -84,6 +86,16 @@ async function init() {
     redirectTo: "/",
     validate: accountsController.validate,
   });
+
+  var bellAuthOptions = {
+    provider: 'github',
+    password: 'github-encryption-password-secure',
+    clientId: process.env.client_id,
+    clientSecret: process.env.client_secret,
+    isSecure: false 
+  };
+
+  server.auth.strategy('github-oauth', 'bell', bellAuthOptions);
 
   // setting jew strategies
   server.auth.strategy("jwt", "jwt", {

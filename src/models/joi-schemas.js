@@ -30,8 +30,20 @@ export const UserCredentialsSpec = Joi.object()
 
 // spec for users
 export const UserSpec = UserCredentialsSpec.keys({
-  firstName: Joi.string().example("Homer").required(),
-  lastName: Joi.string().example("Simpson").required(),
+  firstName: Joi.string()
+    .regex(/^[A-Za-z'][A-Za-z0-9_' ]{2,29}$/)
+    .example("Homer")
+    .required()
+    .messages({
+      'string.pattern.base': 'First name must start with a letter or a single quote, and be 2 to 30 characters long, containing only letters, numbers, underscores, spaces, and single quotes',
+    }),
+  lastName: Joi.string()
+    .regex(/^[A-Za-z'][A-Za-z0-9_' ]{2,29}$/)
+    .example("Simpson")
+    .required()
+    .messages({
+      'string.pattern.base': 'Last name must start with a letter or a single quote, and be 2 to 30 characters long, containing only letters, numbers, underscores, spaces, and single quotes',
+    }),
 }).label("UserDetails");
 
 // adding Id and V for swagger

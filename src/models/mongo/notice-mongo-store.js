@@ -29,8 +29,11 @@ export const noticeMongoStore = {
 
   // method to get an notice using userid
   async getUserNotices(id) {
-    const notice = await Notice.find({ userid: id }).sort({ _id: -1 }).lean();
-    return notice;
+    if (id) {
+      const notice = await Notice.find({ userid: id }).sort({ _id: -1 }).lean();
+      return notice;
+    }
+    return null;
   },
 
   // method to delete an notice using id
@@ -45,13 +48,5 @@ export const noticeMongoStore = {
   // method to delete all notice
   async deleteAllNotices() {
     await Notice.deleteMany({});
-  },
-
-  // method to update an notice
-  async updateNotice(updatedNotice) {
-    const notice = await Notice.findOne({ _id: updatedNotice._id });
-    notice.name = updatedNotice.name;
-    notice.img = updatedNotice.img;
-    await notice.save();
   },
 };
