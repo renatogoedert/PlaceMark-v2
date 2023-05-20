@@ -24,7 +24,7 @@ export const accountsController = {
 
   // signup method, validation off to have a valid path
   signup: {
-    auth: 'github-oauth',
+    auth: false,
     validate: {
       payload: UserSpec,
       options: { abortEarly: false },
@@ -50,7 +50,7 @@ export const accountsController = {
 
   // login  method, with admin validation tests validation off to have a valid path
   login: {
-    auth: 'github-oauth',
+    auth: false,
     validate: {
       payload: UserCredentialsSpec,
       options: { abortEarly: false },
