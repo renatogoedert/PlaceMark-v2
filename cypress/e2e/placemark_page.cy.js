@@ -29,6 +29,14 @@ describe('Placemark Page', () => {
     cy.get('form.box button.is-primary').should('exist');
   });
 
+  it('should open a place', () => {
+    // Click on the first element
+    cy.get('.card .button').eq(0).click();
+    
+    // Assert that the URL contains "/place"
+    cy.url().should('contain', '/place');
+  });
+
   it('should allow adding a place', () => {
     // Get the number of placemarks before addition
     cy.get('.card').its('length').then((originalCount) => {

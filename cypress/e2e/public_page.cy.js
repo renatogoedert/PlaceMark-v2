@@ -15,6 +15,13 @@ describe('Public Page', () => {
     cy.get('a#public.button').click({ force: true });
   });
 
+  it('should open a place', () => {
+    // Click on the first element
+    cy.get('.card .button').eq(0).click();
+    
+    // Assert that the URL contains "/place"
+    cy.url().should('contain', '/place');
+  });
 
   it('should be able to add a place to favourites', () => {
     // Click on the favourite button

@@ -26,6 +26,14 @@ describe('Dashboard', () => {
       cy.get('form').should('exist');
       cy.get('form input[type="text"]').should('exist');
     });
+
+    it('should open a placemark', () => {
+      // Click on the first element
+      cy.get('.box .button').eq(0).click();
+      
+      // Assert that the URL contains "/place"
+      cy.url().should('contain', '/placemark');
+    });
   
     it('should successfully add a Placemark', () => {
       const placemarkName = 'New Placemark';
