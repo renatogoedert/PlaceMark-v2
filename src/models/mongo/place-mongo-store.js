@@ -33,15 +33,6 @@ export const placeMongoStore = {
     return this.getPlaceById(placeObj._id);
   },
 
-  // method to add an place to favourites
-  async addPlaceToFavourites(place) {
-    favouritePlacemark = await placemarkMongoStore.getPlacemarkByName("Favourites")
-    place.placemarkId = favouritePlacemark._id;
-    const newPlace = new Place(place);
-    const placeObj = await newPlace.save();
-    return this.getPlaceById(placeObj._id);
-  },
-
   // method to get an place using id
   async getPlaceById(id) {
     if (id) {
@@ -71,12 +62,16 @@ export const placeMongoStore = {
 
   // method to update an place
   async updatePlace(updatedPlace) {
-    const place = await Place.findOne({ _id: updatedPlace._id });
-    place.name = updatedPlace.name;
-    place.lat = updatedPlace.lat;
-    place.lon = updatedPlace.lon;
-    place.des = updatedPlace.des;
-    place.img = updatedPlace.img;
-    await place.save();
+    if (updatedPlace) {
+      const place = await Place.findOne({ _id: updatedPlace._id });
+      place.name = updatedPlace.name;
+      place.lat = updatedPlace.lat;
+      place.lon = updatedPlace.lon;
+      place.des = updatedPlace.des;
+      place.img = updatedPlace.img;
+      await place.save();
+    }
+  return null;
   },
+
 };

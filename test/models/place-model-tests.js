@@ -65,5 +65,29 @@ suite("Place Model tests", () => {
     const places = await db.placeStore.getAllPlaces();
     assert.equal(places.length, testPlacemarks.length);
   });
-  
+
+  test("Update Place - success", async () => {
+    const newName = "updatedName";
+    const newImg = "updatedImage";
+    const citiesList = await db.placemarkStore.addPlacemark(cities);
+    const place = await db.placeStore.addPlace(citiesList._id, berlin);
+    place.name = newName;
+    place.img = newImg;
+    await db.placeStore.updatePlace(place);
+    const updatedPlace = await db.placeStore.getPlaceById(place._id);
+    assertSubset(updatedPlace.name, newName);
+    assertSubset(updatedPlace.img, newImg);
+  });
+
+  test("update Place - bad params", async () => {
+    assert.isNull(await db.placeStore.updatePlace(""));
+    assert.isNull(await db.placeStore.updatePlace());
+  });
+
+  test("get public places - success", async () => {
+    const places= await db.placeStore.getPublicPlaces();
+    assert.equal(places.length, 1);
+  })
+
+
 });

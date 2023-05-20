@@ -38,8 +38,11 @@ export const placemarkMongoStore = {
 
   // method to find one placemark using id
   async getUserFavouritePlacemark(id) {
+  if (id) {
     const placemark = await Placemark.findOne({ userid: id, isFavourite: true }).lean();
     return placemark;
+  }
+  return null;
   },
 
   // method to add an placemark
@@ -51,8 +54,11 @@ export const placemarkMongoStore = {
 
   // method to get an placemark using userid
   async getUserPlacemarks(id) {
-    const placemark = await Placemark.find({ userid: id }).lean();
-    return placemark;
+    if (id) {
+      const placemark = await Placemark.find({ userid: id }).lean();
+      return placemark;
+    }
+    return null;
   },
 
   // method to delete an placemark using id
@@ -71,9 +77,12 @@ export const placemarkMongoStore = {
 
   // method to update an placemark
   async updatePlacemark(updatedPlacemark) {
-    const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
-    placemark.name = updatedPlacemark.name;
-    placemark.img = updatedPlacemark.img;
-    await placemark.save();
+    if (updatedPlacemark) {
+      const placemark = await Placemark.findOne({ _id: updatedPlacemark._id });
+      placemark.name = updatedPlacemark.name;
+      placemark.img = updatedPlacemark.img;
+      await placemark.save();
+    }
+    return null;
   },
 };
