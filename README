@@ -9,7 +9,16 @@ Users: homer@simpson password: secret
 Users: bart@simpson password: secret
 Users: marge@simpson password: secret
 
+
 # Placemark Changelog
+
+
+## version 1.4.0
+
+-Better test Coverage
+-e2e Cypress Enhanced
+-OAuth GitHub autentification
+-UI improvemtns
 
 ## version 1.3.0
 
